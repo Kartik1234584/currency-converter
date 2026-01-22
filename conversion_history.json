@@ -1,0 +1,42 @@
+[
+  {
+    "success": true,
+    "amount": 1.0,
+    "from_currency": "USD",
+    "to_currency": "INR",
+    "converted_amount": 90.96,
+    "exchange_rate": 90.96,
+    "source": "live",
+    "timestamp": "2026-01-20T17:33:13.971786"
+  },
+  {
+    "success": true,
+    "amount": 1.0,
+    "from_currency": "INR",
+    "to_currency": "USD",
+    "converted_amount": 0.01,
+    "exchange_rate": 0.011,
+    "source": "live",
+    "timestamp": "2026-01-20T17:32:41.981048"
+  },
+  {
+    "success": true,
+    "amount": 1.0,
+    "from_currency": "INR",
+    "to_currency": "CNY",
+    "converted_amount": 0.08,
+    "exchange_rate": 0.0768,
+    "source": "live",
+    "timestamp": "2026-01-20T17:31:16.001280"
+  },
+  {
+    "success": true,
+    "amount": 1.0,
+    "from_currency": "INR",
+    "to_currency": "EUR",
+    "converted_amount": 0.01,
+    "exchange_rate": 0.00946,
+    "source": "live",
+    "timestamp": "2026-01-20T17:31:06.002131"
+  }
+]

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter - Real-time Exchange Rates</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle" title="Toggle Dark/Light Mode">
+        🌙
+    </button>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>💱 Currency Converter</h1>
+            <p>Convert currencies with real-time exchange rates</p>
+        </header>
+
+        <!-- Main Converter Section -->
+        <main class="converter-section">
+            <div class="converter-box">
+                <!-- Amount Input -->
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="number" 
+                            id="amount" 
+                            placeholder="Enter amount" 
+                            value="1"
+                            min="0"
+                            step="0.01"
+                        >
+                        <span class="currency-symbol">$</span>
+                    </div>
+                </div>
+
+                <!-- From Currency -->
+                <div class="form-group">
+                    <label for="fromCurrency">From</label>
+                    <select id="fromCurrency">
+                        <option value="USD">USD - US Dollar</option>
+                    </select>
+                </div>
+
+                <!-- Swap Button -->
+                <button class="swap-btn" id="swapBtn" title="Swap currencies">
+                    ⇄
+                </button>
+
+                <!-- To Currency -->
+                <div class="form-group">
+                    <label for="toCurrency">To</label>
+                    <select id="toCurrency">
+                        <option value="EUR">EUR - Euro</option>
+                    </select>
+                </div>
+
+                <!-- Convert Button -->
+                <button class="convert-btn" id="convertBtn">
+                    Convert
+                </button>
+
+                <!-- Error Message -->
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+                <!-- Result Section -->
+                <div id="resultSection" class="result-section" style="display: none;">
+                    <div class="result-box">
+                        <div class="result-item">
+                            <span class="label">Amount:</span>
+                            <span class="value"><span id="resultAmount">0</span> <span id="resultFromCurrency">USD</span></span>
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="result-item">
+                            <span class="label">Converted:</span>
+                            <span class="value"><span id="resultConverted">0</span> <span id="resultToCurrency">EUR</span></span>
+                        </div>
+                    </div>
+
+                    <div class="rate-info">
+                        <p>
+                            1 <span id="rateFromCurrency">USD</span> = 
+                            <strong><span id="exchangeRate">0</span></strong> 
+                            <span id="rateToCurrency">EUR</span>
+                        </p>
+                        <small id="sourceInfo" class="source-info"></small>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Tabs for History and Info -->
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="history">📋 History</button>
+                <button class="tab-btn" data-tab="info">ℹ️ About</button>
+            </div>
+
+            <!-- History Tab -->
+            <div id="history" class="tab-content active">
+                <div class="history-header">
+                    <h3>Recent Conversions</h3>
+                    <button id="clearHistoryBtn" class="clear-history-btn">Clear History</button>
+                </div>
+                <div id="historyList" class="history-list">
+                    <p class="empty-message">No conversions yet. Start converting!</p>
+                </div>
+            </div>
+
+            <!-- Info Tab -->
+            <div id="info" class="tab-content">
+                <div class="info-content">
+                    <h3>About This App</h3>
+                    <div class="info-section">
+                        <h4>Features:</h4>
+                        <ul>
+                            <li>✅ Real-time exchange rates</li>
+                            <li>✅ Support for 20+ currencies</li>
+                            <li>✅ Conversion history tracking</li>
+                            <li>✅ Offline fallback with cached rates</li>
+                            <li>✅ Dark/Light mode toggle</li>
+                            <li>✅ Swap currencies instantly</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>How It Works:</h4>
+                        <ol>
+                            <li>Enter the amount you want to convert</li>
+                            <li>Select source and target currencies</li>
+                            <li>Click "Convert" to get real-time rates</li>
+                            <li>Use "⇄" button to swap currencies</li>
+                            <li>Check your history tab for recent conversions</li>
+                        </ol>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>Data Source:</h4>
+                        <p>Exchange rates are fetched from ExchangeRate-API. Rates are cached for offline use.</p>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>Supported Currencies:</h4>
+                        <div id="currenciesList" class="currencies-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-text">Made by Kartik Sadhu</div>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/kartik-sadhu-8365b5378" target="_blank" rel="noopener">LinkedIn</a>
+                <span class="footer-separator">|</span>
+                <a href="mailto:kartiksofficial486@gmail.com">kartiksofficial486@gmail.com</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
